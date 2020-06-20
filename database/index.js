@@ -24,7 +24,7 @@ let productSchema = new Schema({
   price: Number,
   stock: String,
   color: String,
-  size: String,
+  size: [{type: String}],
   quantity: Number,
   personalization: String,
   product_id: Number
@@ -32,24 +32,6 @@ let productSchema = new Schema({
 
 let Product = mongoose.model('Product', productSchema)
 
-if (db.Store) {
-  db.Store.deleteMany({}, err => {
-    if (err) {
-      console.log('Error deleting Store model instance')
-    } else {
-      console.log('Deleted Store model instance')
-    }
-  })
-}
-if (db.Product) {
-  db.Product.deleteMany({}, err => {
-    if (err) {
-      console.log('Error deleting Product model instance')
-    } else {
-      console.log('Deleted Product model instance')
-    }
-  })
-}
 
 // Store stores in database
 const storeDB = () => {
@@ -59,20 +41,19 @@ const storeDB = () => {
     let oneStore = new Store({
       rating: faker.random.number({min: 1, max: 5}),
       salesNum: faker.random.number({min: 1, max: 10000}),
-      store_id: faker.random.number({min: 1, max: 20}),
-      username: faker.internet.userName,
+      store_id: i,
+      username: faker.internet.userName(),
     })
 
     oneStore.save((err) => {
       if (err) {
         throw err;
-      } else {
-        storeNum++;
       }
     })
+    storeNum = i;
   }
+  console.log(storeNum + 1 + ' stores stored in database')
 
-  console.log(storeNum + ' stores stored in database')
 }
 
 // Store products in database
@@ -84,7 +65,7 @@ const productDB = () => {
       name: faker.commerce.productName(),
       product_id: i,
       price: faker.finance.amount(),
-      stock: faker.random.boolean,
+      stock: faker.random.boolean(),
       store_id: faker.random.number({min: 1, max: 20})
     });
 
@@ -92,7 +73,7 @@ const productDB = () => {
       oneProduct.category = 'clothing';
       oneProduct.color = faker.commerce.color();
       oneProduct.quantity = faker.random.number({min: 1, max: 500});
-      oneProduct.size = faker.company.bsBuzz();
+      oneProduct.size = ["Small", "Medium", "Large"];
     } else if (i < 50) {
       oneProduct.category = 'art';
     } else if (i < 75) {
@@ -103,22 +84,49 @@ const productDB = () => {
       oneProduct.color = faker.commerce.color();
       oneProduct.personalization = faker.random.boolean;
       oneProduct.quantity = faker.random.number({min: 1, max: 500});
-      oneProduct.size = faker.company.bsBuzz();
+      oneProduct.size = ["Small", "Medium", "Large"];
     }
 
     oneProduct.save((err) => {
       if (err) {
         console.log('Error storing ' + oneProduct.product_id + ' in database')
-      } else {
-        productNum++;
       }
     })
+    productNum = i;
   }
 
-  console.log(productNum + ' products stored in database');
+  console.log(productNum + 1 + ' products stored in database');
 }
 
-productDB();
-storeDB();
 
-module.exports = Store, Product;
+const storeStore = () => {
+  // if (db.Store) {
+    Store.deleteMany({}, err => {
+      if (err) {
+        console.log('Error deleting Store model instance')
+      } else {
+        console.log('Deleted Store model instance')
+        storeDB();
+      }
+    })
+  // }
+}
+
+const storeProduct = () => {
+
+    Product.deleteMany({}, err => {
+      if (err) {
+        console.log('Error deleting Product model instance')
+      } else {
+        console.log('Deleted Product model instance')
+        productDB();
+      }
+    })
+}
+
+module.exports = {
+  Store,
+  Product,
+  storeStore,
+  storeProduct
+}
