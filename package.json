@@ -12,7 +12,7 @@
     "react-dev": "webpack -d --watch",
     "start": "node server/server.js",
     "server-dev": "nodemon server/index.js",
-    "seed": "node database/index.js"
+    "seed": "node database/seed.js"
   },
   "dependencies": {
     "@babel/core": "^7.10.2",
