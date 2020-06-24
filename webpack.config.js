@@ -1,4 +1,3 @@
-webpack.config.js
 const path = require('path');
 
 const SRC_DIR = path.join(__dirname, 'client/src');
@@ -16,9 +15,11 @@ module.exports = {
       {
         test: /\.jsx?$/,
         include: [SRC_DIR],
-        use: 'babel-loader',
-        query: {
-          presets: ['@babel/preset-react', '@babel/preset-env'],
+        use: {
+          loader:'babel-loader',
+          options: {
+            presets: ['@babel/preset-react', '@babel/preset-env'],
+          }
         }
       },
     ],
