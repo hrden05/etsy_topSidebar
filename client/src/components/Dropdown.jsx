@@ -1,15 +1,15 @@
 import React from 'react';
+import Colors from './Colors.jsx';
+import Size from './Size.jsx';
+import Quantity from './Quantity.jsx';
 
-
-const Dropdown = (props) => {
-
-  return (
-    <div>
-      <p></p>
-      <select></select>
-    </div>
-  )
-}
+const Dropdown = (props) => (
+  <div>
+    <Size id={props.id} options={props.size}/>
+    <Colors id={props.id} options={props.color} />
+    <Quantity id={props.id} quantity={props.quantity}/>
+  </div>
+)
 
 export default Dropdown;
 

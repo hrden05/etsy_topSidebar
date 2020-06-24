@@ -2,9 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Personalization from './Personalization.jsx';
-// import Dropdown from './Dropdown.jsx';
+import Dropdown from './Dropdown.jsx';
 import ProductInfo from './ProductInfo.jsx';
 import StoreInfo from './StoreInfo.jsx';
+
+const ranNum100 = Math.floor(Math.random() * 100);
+const ranNum20 = Math.floor(Math.random() * 20);
 
 class App extends React.Component {
   constructor(props) {
@@ -29,8 +32,8 @@ class App extends React.Component {
     .then(results => results.json())
     .then(data => {
       this.setState({
-        product: data.products[78]
-      })
+        product: data.products[ranNum100]
+      }, () => console.log(this.state.product))
      })
     .catch(err => {console.log('Error retrieving product info: ', err)})
   }
@@ -41,8 +44,8 @@ class App extends React.Component {
     .then(data =>
         // {console.log(data)}
       this.setState({
-        store: data.stores[0]
-      }, () => console.log(this.state.store))
+        store: data.stores[ranNum20]
+      })
     )
   }
 
@@ -79,9 +82,9 @@ class App extends React.Component {
     return (
       <div>
 
-        <StoreInfo user={store.username} sales={store.salesNum} rating={store.rating} />
-        <ProductInfo name={product.name} price={product.price} stock={product.stock}/>
-        {/* <Dropdown color={product.color} quantity={product.quantity} size={product.size}/> */}
+        <StoreInfo id={store.store_id} user={store.username} sales={store.salesNum} rating={store.rating} />
+        <ProductInfo id={product.product_id} name={product.name} price={product.price} stock={product.stock}/>
+        <Dropdown id={product.product_id} category={product.category} color={product.color} quantity={product.quantity} size={product.size}/>
         <Personalization option={product.personalization}/>
 
         <button>Buy it now</button>

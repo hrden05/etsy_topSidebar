@@ -1,8 +1,7 @@
 import React from 'react';
 
 const Personalization = (props) => {
-  // console.log("Personalization props: ", props)
-  if (props) {
+  if (props.option) {
     return (
       <div>
         <p>Add your personalization (optional)</p>
