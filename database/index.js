@@ -2,7 +2,13 @@ const mongoose = require('mongoose');
 const faker = require('faker');
 
 const mongoDB = 'mongodb://localhost:27017/topSidebar';
-mongoose.connect(mongoDB, { useNewUrlParser: true });
+mongoose
+.connect(mongoDB, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log('DB connected'))
+.catch(err => console.log('DB connection error: ', err))
 
 const db = mongoose.connection
 
@@ -78,11 +84,11 @@ const productDB = () => {
       oneProduct.category = 'art';
     } else if (i < 75) {
       oneProduct.category = 'jewelry';
-      personalization = faker.random.boolean;
+      personalization = faker.random.boolean();
     } else {
       oneProduct.category = 'misc';
       oneProduct.color = faker.commerce.color();
-      oneProduct.personalization = faker.random.boolean;
+      oneProduct.personalization = faker.random.boolean();
       oneProduct.quantity = faker.random.number({min: 1, max: 500});
       oneProduct.size = ["Small", "Medium", "Large"];
     }
