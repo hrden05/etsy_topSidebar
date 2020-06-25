@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 
 import Personalization from './Personalization.jsx';
 import Dropdown from './Dropdown.jsx';
@@ -28,52 +29,23 @@ class App extends React.Component {
   }
 
   getProductInfo() {
-    fetch('http://localhost:3000/api/products')
-    .then(results => results.json())
-    .then(data => {
+    axios.get('http://localhost:3000/api/products')
+    .then(results => {
       this.setState({
-        product: data.products[ranNum100]
+        product: results.data.products[ranNum100]
       }, () => console.log(this.state.product))
      })
     .catch(err => {console.log('Error retrieving product info: ', err)})
   }
 
   getStoreInfo() {
-    fetch('http://localhost:3000/api/stores')
-    .then(results => results.json())
-    .then(data =>
-        // {console.log(data)}
+    axios.get('http://localhost:3000/api/stores')
+    .then(results => {
       this.setState({
-        store: data.stores[ranNum20]
+        store: results.data.stores[ranNum20]
       })
-    )
+    })
   }
-
-  // getProductInfo() {
-  //   axios.get(`http://localhost:3000/api/products`)
-  //   .then(results => {
-  //     console.log(results.data)
-  //   })
-    //  results.data.products
-    // )
-    // .then(data =>
-    //   this.setState({
-    //     product: data
-    //   }))
-  //   .catch(err => console.log('Error in frontend get: ', err))
-  // }
-
-  // getStoreInfo() {
-  //   axios.get(`http://localhost:3000/api/stores`)
-  //   .then(results => results.data.stores)
-  //   .then(data =>
-  //     this.setState({
-  //       stores: data
-  //     })
-  //   )
-  //   .catch(err => console.log('Error getting stores: ', err))
-  // }
-
 
   render() {
     const store = this.state.store;

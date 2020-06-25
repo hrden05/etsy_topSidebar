@@ -8,16 +8,16 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "start": "node server/server.js",
     "build": "webpack -p",
     "react-dev": "webpack -d --watch",
-    "start": "node server/server.js",
     "server-dev": "nodemon server/index.js",
     "seed": "node database/seed.js",
-    "test": "jest"
+    "test": "jest --verbose --watch"
   },
   "dependencies": {
     "@babel/core": "^7.10.2",
-    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-env": "^7.10.3",
     "@babel/preset-react": "^7.10.1",
     "axios": "^0.19.2",
     "babel-loader": "^8.1.0",
@@ -33,6 +33,13 @@
     "webpack-cli": "^3.3.11"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.3",
+    "@babel/preset-react": "^7.10.1",
+    "babel-jest": "^26.1.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-react-16-adapter-setup": "^0.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
@@ -40,6 +47,11 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^2.5.1",
-    "jest": "^26.0.1"
+    "jest": "^26.1.0",
+    "jest-enzyme": "^7.1.2",
+    "react-test-renderer": "^16.13.1"
+  },
+  "jest": {
+    "setupFilesAfterEnv": "<rootDir>/client/src/setupTests.js"
   }
 }
