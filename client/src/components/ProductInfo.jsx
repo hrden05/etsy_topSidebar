@@ -1,5 +1,6 @@
 import React from 'react';
 import Bestseller from './Bestseller.jsx';
+import Price from './Price.jsx';
 
 const ProductInfo = (props) => {
 
@@ -10,38 +11,20 @@ const ProductInfo = (props) => {
     stock = 'Out of stock';
   };
 
-  let randomTenth = Math.random().toFixed(1);
-  let regularPrice = (props.price / randomTenth).toFixed(2);
-  let saved = (regularPrice - props.price).toFixed(2);
-  let percentSaved = (100 - (randomTenth * 100)).toFixed(2);
+  // let randomTenth = Math.random().toFixed(1);
+  // let regularPrice = (props.price / randomTenth).toFixed(2);
+  // let saved = (regularPrice - props.price).toFixed(2);
+  // let percentSaved = (100 - (randomTenth * 100)).toFixed(2);
 
-  if (props.category === 'art') {
-    return (
-      <div class="productBox">
-        <div class="productInBox">
-          <div class="productName">{props.name}</div>
-          <Bestseller bestseller={props.bestseller} />
-          <div>${props.price}+</div>
-          {/* <p>${regularPrice}+</p>
-          <p>You save ${saved} ({percentSaved}%)</p> */}
-          <p>{stock}</p>
-        </div>
+  return (
+    <div className="productBox">
+      <div className="productInBox">
+        <h1 className="productName">{props.name}</h1>
+        <span className="bestseller">Bestseller</span>
+        {/* <Bestseller bestseller={props.bestseller} /> */}
       </div>
-    )
-  } else {
-    return (
-      <div class="productBox">
-        <div class="productInBox">
-          <div class="productName">{props.name}</div>
-          <Bestseller bestseller={props.bestseller} />
-          <div>${props.price}+</div>
-          <p>${regularPrice}+</p>
-          <p>You save ${saved} ({percentSaved}%)</p>
-          <p>{stock}</p>
-        </div>
-      </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default ProductInfo;

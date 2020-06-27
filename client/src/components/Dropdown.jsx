@@ -4,10 +4,14 @@ import Size from './Size.jsx';
 import Quantity from './Quantity.jsx';
 
 const Dropdown = (props) => (
-  <div>
-    <Size id={props.id} options={props.size}/>
-    <Colors id={props.id} options={props.color} />
-    <Quantity id={props.id} quantity={props.quantity}/>
+  <div className="dropdownBox">
+    <div className="dropdownInBox">
+      <div className="dropdownCategories">
+        <Size id={props.id} options={props.size}/>
+        <Colors id={props.id} options={props.color} />
+        <Quantity id={props.id} quantity={props.quantity}/>
+      </div>
+    </div>
   </div>
 )
 

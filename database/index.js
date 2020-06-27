@@ -29,6 +29,7 @@ let productSchema = new Schema({
   bestseller: Boolean,
   category: String,
   color: [{type: String}],
+  end: Boolean,
   name: String,
   personalization: String,
   price: Number,
@@ -85,6 +86,7 @@ const productDB = () => {
   for (let i = 0; i < 100; i ++) {
     let oneProduct = new Product({
       bestseller: faker.random.boolean(),
+      end: faker.random.boolean(),
       name: faker.commerce.productName(),
       product_id: i,
       price: faker.finance.amount(),

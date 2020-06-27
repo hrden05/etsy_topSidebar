@@ -1,0 +1,36 @@
+.sidebarAll {
+  box-sizing:border-box;
+  color:rgb(34, 34, 34);
+  display:block;
+  flex-basis:auto;
+  flex-grow:0;
+  flex-shrink:0;
+  float:right;
+  font-family:"Graphik Webfont", -apple-system, BlinkMacSystemFont, Roboto, "Droid Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size:14px;
+  height:786px;
+  line-height:19.6px;
+  margin-bottom:36px;
+  margin-left:0px;
+  margin-right:0px;
+  margin-top:0px;
+  order:2;
+  text-align:left;
+  text-size-adjust:100%;
+  width:462px;
+  -webkit-font-smoothing:antialiased;
+}
+
+box-sizing:border-box;
+color:rgb(34, 34, 34);
+display:block;
+font-family:"Graphik Webfont", -apple-system, BlinkMacSystemFont, Roboto, "Droid Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+font-size:14px;
+height:72px;
+line-height:19.6px;
+margin-bottom:12px;
+margin-left:0px;
+margin-right:0px;
+margin-top:0px;
+text-align:left;
+text-size-adjust:100%;
