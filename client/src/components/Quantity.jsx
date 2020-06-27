@@ -11,14 +11,15 @@ const Quantity = (props) => {
     }
 
     return (
-      <div>
-        <label>Quantity</label>
-        <br></br>
-        <select>
-          {numberArr.map(num =>
-            <option key={num + props.id}>{num}</option>
-          )}
-        </select>
+      <div className="dropdownIndividuals">
+        <label className="dropdownLabels">Quantity</label>
+        <div className="dropdownContainers">
+          <select className="dropdownSelectors">
+            {numberArr.map(num =>
+              <option className="dropdownValues" key={num + props.id}>{num}</option>
+              )}
+          </select>
+        </div>
       </div>
     )
   }

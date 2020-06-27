@@ -26,8 +26,10 @@ let storeSchema = new Schema({
 let Store = mongoose.model('Store', storeSchema);
 
 let productSchema = new Schema({
+  bestseller: Boolean,
   category: String,
   color: [{type: String}],
+  end: Boolean,
   name: String,
   personalization: String,
   price: Number,
@@ -83,7 +85,10 @@ const productDB = () => {
 
   for (let i = 0; i < 100; i ++) {
     let oneProduct = new Product({
+      bestseller: faker.random.boolean(),
+      end: faker.random.boolean(),
       name: faker.commerce.productName(),
+      personalization: faker.random.boolean(),
       product_id: i,
       price: faker.finance.amount(),
       stock: faker.random.boolean(),
@@ -99,11 +104,9 @@ const productDB = () => {
       oneProduct.category = 'art';
     } else if (i < 75) {
       oneProduct.category = 'jewelry';
-      personalization = faker.random.boolean();
     } else {
       oneProduct.category = 'misc';
       oneProduct.color = colorGen();
-      oneProduct.personalization = faker.random.boolean();
       oneProduct.quantity = faker.random.number({min: 1, max: 500});
       oneProduct.size = ["Small", "Medium", "Large"];
     }

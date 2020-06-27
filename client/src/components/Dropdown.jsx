@@ -2,12 +2,18 @@ import React from 'react';
 import Colors from './Colors.jsx';
 import Size from './Size.jsx';
 import Quantity from './Quantity.jsx';
+import Personalization from './Personalization.jsx';
 
 const Dropdown = (props) => (
-  <div>
-    <Size id={props.id} options={props.size}/>
-    <Colors id={props.id} options={props.color} />
-    <Quantity id={props.id} quantity={props.quantity}/>
+  <div className="dropdownBox">
+    <div className="dropdownInBox">
+      <div className="dropdownCategories">
+        <Size id={props.id} options={props.size}/>
+        <Colors id={props.id} options={props.color} />
+        <Quantity id={props.id} quantity={props.quantity}/>
+        <Personalization option={props.personalization} />
+      </div>
+    </div>
   </div>
 )
 

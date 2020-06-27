@@ -1,10 +1,9 @@
 import React from 'react';
-
-function round(num) {
-  return Math.ceil(num *100) / 100;
-};
+import Bestseller from './Bestseller.jsx';
+import Price from './Price.jsx';
 
 const ProductInfo = (props) => {
+
   let stock = '';
   if (props.stock) {
     stock = 'In stock';
@@ -12,17 +11,18 @@ const ProductInfo = (props) => {
     stock = 'Out of stock';
   };
 
-
-  const regularPrice = round(props.price / .4).toFixed(2);
-  const saved = round(regularPrice - props.price).toFixed(2);
+  // let randomTenth = Math.random().toFixed(1);
+  // let regularPrice = (props.price / randomTenth).toFixed(2);
+  // let saved = (regularPrice - props.price).toFixed(2);
+  // let percentSaved = (100 - (randomTenth * 100)).toFixed(2);
 
   return (
-    <div>
-      <h3>{props.name}</h3>
-      <p>${props.price}+</p>
-      <p>${regularPrice}+</p>
-      <p>You save ${saved} (60%)</p>
-      <p>{stock}</p>
+    <div className="productBox">
+      <div className="productInBox">
+        <h1 className="productName">{props.name}</h1>
+        <span className="bestseller">Bestseller</span>
+        {/* <Bestseller bestseller={props.bestseller} /> */}
+      </div>
     </div>
   )
 }
