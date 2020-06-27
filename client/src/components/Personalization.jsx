@@ -1,9 +1,10 @@
 import React from 'react';
 
 const Personalization = (props) => {
+  console.log('here')
   if (props.option) {
     return (
-      <div className="personalizationBox">
+      <div className="dropdownIndividuals">
         <button className="personalizationButton">
           <span className="personalizationField">
             Add your personalization (optional)

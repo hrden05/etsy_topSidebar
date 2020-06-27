@@ -5,7 +5,7 @@ const Size = (props) => {
   if (props.options !== undefined && props.options.length > 0) {
     return (
       <div className="dropdownIndividuals">
-        <label className="dropdownLabel">Size</label>
+        <label className="dropdownLabels">Size</label>
         <div className="dropdownContainers">
           <select className="dropdownSelectors">
             <option className="dropdownValues">Select an option</option>

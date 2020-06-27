@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 
-import Personalization from './Personalization.jsx';
 import Dropdown from './Dropdown.jsx';
 import ProductInfo from './ProductInfo.jsx';
 import StoreInfo from './StoreInfo.jsx';
@@ -59,8 +58,7 @@ class App extends React.Component {
             <StoreInfo id={store.store_id} user={store.username} sales={store.salesNum} rating={store.rating} />
             <ProductInfo id={product.product_id} bestseller={product.bestseller} name={product.name} price={product.price} stock={product.stock} category={product.category}/>
             <Price category={product.category} price={product.price} end={product.end} stock={product.stock}/>
-            <Dropdown id={product.product_id} category={product.category} color={product.color} quantity={product.quantity} size={product.size}/>
-            <Personalization option={product.personalization}/>
+            <Dropdown id={product.product_id} category={product.category} color={product.color} quantity={product.quantity} size={product.size} option={product.personalization}/>
 
             <div className="buttonBox">
               <div className="buttonBuyBox">
