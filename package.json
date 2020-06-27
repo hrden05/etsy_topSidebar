@@ -7,6 +7,11 @@
   "engines": {
     "node": ">=6.13.0"
   },
+  "jest": {
+    "setupFilesAfterEnv": "<rootDir>/client/src/components/_test_/setupTests.js",
+    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
+    "setupFiles": ["enzyme-react-16-adapter-setup"]
+  },
   "scripts": {
     "start": "node server/server.js",
     "build": "webpack -p",
@@ -50,8 +55,5 @@
     "jest": "^26.1.0",
     "jest-enzyme": "^7.1.2",
     "react-test-renderer": "^16.13.1"
-  },
-  "jest": {
-    "setupFilesAfterEnv": "<rootDir>/client/src/setupTests.js"
   }
 }

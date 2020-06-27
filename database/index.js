@@ -26,6 +26,7 @@ let storeSchema = new Schema({
 let Store = mongoose.model('Store', storeSchema);
 
 let productSchema = new Schema({
+  bestseller: Boolean,
   category: String,
   color: [{type: String}],
   name: String,
@@ -83,6 +84,7 @@ const productDB = () => {
 
   for (let i = 0; i < 100; i ++) {
     let oneProduct = new Product({
+      bestseller: faker.random.boolean(),
       name: faker.commerce.productName(),
       product_id: i,
       price: faker.finance.amount(),

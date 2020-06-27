@@ -52,17 +52,20 @@ class App extends React.Component {
     const product = this.state.product;
 
     return (
-      <div>
+      <div class="sidebarAll">
+        <div class="sidebarBox">
+          <div class="inSidebarBox">
+            <StoreInfo id={store.store_id} user={store.username} sales={store.salesNum} rating={store.rating} />
+            <ProductInfo id={product.product_id} bestseller={product.bestseller} name={product.name} price={product.price} stock={product.stock} category={product.category}/>
+            <Dropdown id={product.product_id} category={product.category} color={product.color} quantity={product.quantity} size={product.size}/>
+            <Personalization option={product.personalization}/>
 
-        <StoreInfo id={store.store_id} user={store.username} sales={store.salesNum} rating={store.rating} />
-        <ProductInfo id={product.product_id} name={product.name} price={product.price} stock={product.stock}/>
-        <Dropdown id={product.product_id} category={product.category} color={product.color} quantity={product.quantity} size={product.size}/>
-        <Personalization option={product.personalization}/>
+            <button>Buy it now</button>
+            <br></br>
+            <button>Add to cart</button>
 
-        <button>Buy it now</button>
-        <br></br>
-        <button>Add to cart</button>
-
+          </div>
+        </div>
       </div>
     )
   }

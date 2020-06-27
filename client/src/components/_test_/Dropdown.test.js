@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import Dropdown from '../Dropdown.jsx';
 import Size from '../Size.jsx';
@@ -9,8 +10,9 @@ describe('Dropdown component tests', () => {
 
   const wrapper = shallow(<Dropdown />);
 
-  it('renders Dropdown component', () => {
-    expect(wrapper.exists()).toBe(true);
+  it('Dropdown: renders component', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<Dropdown />, div);
   })
 
   it('renders Size, Colors, and Quantity components', () => {

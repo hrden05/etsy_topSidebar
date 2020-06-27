@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import ReactDOM from 'react-dom';
+import { shallow, mount } from 'enzyme';
 import App from '../App.jsx';
 import Personalization from '../Personalization.jsx';
 import Dropdown from '../Dropdown.jsx';
@@ -9,6 +10,11 @@ import ProductInfo from '../ProductInfo.jsx';
 describe('App tests', () => {
 
   const wrapper = shallow(<App />);
+
+  it('App: renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<App />, div);
+  })
 
   it('renders App component', () => {
     expect(wrapper.exists()).toBe(true);
@@ -21,10 +27,22 @@ describe('App tests', () => {
     expect(wrapper.find(ProductInfo).exists()).toBe(true);
   })
 
-  it('populates App state', () => {
-    const componentInstance = wrapper.instance();
-    componentInstance.componentDidMount();
-    done()
-    expect(wrapper.state('product')).toHaveLength(100)
+  it('should call getProductInfo during componentDidMount', () => {
+    const wrapper = mount(<App />);
+    const instance = wrapper.instance();
+    instance.componentDidMount();
+    // jest.spyOn(instance, 'getProductInfo')
+    expect(wrapper.state('store')).toBe(true);
   })
+
 });
+
+xdescribe('App: mount tests', () => {
+
+  test('App: shallow wrapper instance should not be null', () => {
+    const wrapper = shallow(<App />);
+    const instance = wrapper.instance();
+
+    expect(instance).to.be.instanceOf(Stateful);
+  })
+})
