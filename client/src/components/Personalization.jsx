@@ -21,7 +21,6 @@ class Personalization extends React.Component {
 
 
   handleClick(e) {
-    e.preventDefault();
     const element = document.getElementById("description");
     if (element.style.display === "none") {
       element.style.display = "block";

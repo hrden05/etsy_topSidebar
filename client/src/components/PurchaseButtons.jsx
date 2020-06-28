@@ -5,11 +5,11 @@ const PurchaseButtons = (props) => {
   return (
     <div className="buttonBox">
       <div className="buttonBuyBox">
-        <form className="buttonBuyInBox">
+        {/* <form className="buttonBuyInBox"> */}
           <button className="buttonBuy">
             Buy it now
           </button>
-        </form>
+        {/* </form> */}
       </div>
       <div className="buttonAddBox">
         <form className="buttonAddInBox">
