@@ -40,7 +40,7 @@ class Personalization extends React.Component {
             <span className="personalizationField">
                 Add your personalization (optional)
             </span>
-            <span className="personalizationButtonArrow"></span>
+            <span className="personalizationButtonArrow" ></span>
           </button>
           <div className="personalizationDescription" id="description">
             <p className="personalizationInstructions">{this.props.props.description}</p>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const multiplyNode = (node, count, deep) => {
-  for (var i = 0, copy; i < count - 1; i++) {
+  for (var i = 0, copy; i < count / 2 - 1; i++) {
       copy = node.cloneNode(deep);
       node.parentNode.insertBefore(copy, node);
   }
