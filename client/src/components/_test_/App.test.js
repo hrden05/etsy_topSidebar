@@ -20,14 +20,13 @@ describe('App tests', () => {
     expect(wrapper.exists()).toBe(true);
   });
 
-  it('renders Personalization, Dropdown, StoreInfo, and ProductInfo components', () => {
-    expect(wrapper.find(Personalization).exists()).toBe(true);
+  it('renders Dropdown, StoreInfo, and ProductInfo components', () => {
     expect(wrapper.find(Dropdown).exists()).toBe(true);
     expect(wrapper.find(StoreInfo).exists()).toBe(true);
     expect(wrapper.find(ProductInfo).exists()).toBe(true);
   })
 
-  it('should call getProductInfo during componentDidMount', () => {
+  xit('should call getProductInfo during componentDidMount', () => {
     const wrapper = mount(<App />);
     const instance = wrapper.instance();
     instance.componentDidMount();
