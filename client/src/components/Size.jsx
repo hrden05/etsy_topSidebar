@@ -13,6 +13,7 @@ const Size = (props) => {
               <option key={color + props.id} className="dropdownValues">{color}</option>
               ))}
           </select>
+
         </div>
       </div>
     )
