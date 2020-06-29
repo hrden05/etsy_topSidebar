@@ -4,7 +4,7 @@ const Bestseller = (props) => {
   if (!props.bestseller) {
     return null;
   } else {
-    return <span class="bestseller">Bestseller</span>
+    return <span className="bestseller">Bestseller</span>
   }
 }
 export default Bestseller;

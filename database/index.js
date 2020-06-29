@@ -50,7 +50,7 @@ const storeDB = () => {
 
   for (let i = 0; i < 20; i++) {
     let oneStore = new Store({
-      rating: faker.random.number({min: 1, max: 10}),
+      rating: faker.random.number({min: 1, max: 5}),
       salesNum: faker.random.number({min: 1, max: 10000}),
       store_id: i,
       username: faker.internet.userName(),

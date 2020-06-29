@@ -1,10 +1,12 @@
 import React from 'react';
+import Description from './Description.jsx';
 
 class Personalization extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      showDescription: false,
       charCount: 256,
     }
 
@@ -21,11 +23,12 @@ class Personalization extends React.Component {
 
 
   handleClick(e) {
-    const element = document.getElementById("description");
-    if (element.style.display === "none") {
-      element.style.display = "block";
-    } else {
-      element.style.display = "none";
+    switch(e) {
+      case "show":
+        this.setState({
+          showDescription: !this.state.showDescription
+        });
+      default: null;
     }
   }
 
@@ -35,19 +38,27 @@ class Personalization extends React.Component {
     } else {
       return (
         <div className="dropdownIndividuals">
-          <button className="personalizationButton" onClick={this.handleClick}>
+          <button className="personalizationButton" onClick={() => this.handleClick("show")}>
             <span className="personalizationField">
                 Add your personalization (optional)
             </span>
-            <span className="personalizationButtonArrow" ></span>
+            {this.state.showDescription
+              ?
+              <span className="personalizationButtonArrowDown personalizationButtonArrow" ></span>
+              :
+              <span className="personalizationButtonArrowUpDescrip personalizationButtonArrow"></span>
+            }
           </button>
-          <div className="personalizationDescription" id="description">
-            <p className="personalizationInstructions">{this.props.props.description}</p>
-            <textarea className="textarea" onChange={this.handleChange}></textarea>
-            <div className="textCountBox">{this.state.charCount}</div>
-          </div>
+          {this.state.showDescription
+            ?
+            <Description charCount={this.state.charCount} handleChange={this.handleChange} props={this.props}/>
+            :
+            null
+          }
         </div>
+
       )
+
     }
   }
 }
