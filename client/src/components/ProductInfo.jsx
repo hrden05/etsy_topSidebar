@@ -20,8 +20,8 @@ const ProductInfo = (props) => {
     <div className="productBox">
       <div className="productInBox">
         <h1 className="productName">{props.name}</h1>
-        <span className="bestseller">Bestseller</span>
-        {/* <Bestseller bestseller={props.bestseller} /> */}
+        {/* <span className="bestseller">Bestseller</span> */}
+        <Bestseller bestseller={props.bestseller} />
       </div>
     </div>
   )

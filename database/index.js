@@ -29,14 +29,16 @@ let productSchema = new Schema({
   bestseller: Boolean,
   category: String,
   color: [{type: String}],
+  personalizationDescription: String,
   end: Boolean,
   name: String,
   personalization: String,
   price: Number,
   product_id: Number,
   quantity: Number,
+  saleEnd: Boolean,
   size: [{type: String}],
-  stock: String,
+  stock: [{type: String}],
 })
 
 let Product = mongoose.model('Product', productSchema)
@@ -89,9 +91,11 @@ const productDB = () => {
       end: faker.random.boolean(),
       name: faker.commerce.productName(),
       personalization: faker.random.boolean(),
+      personalizationDescription: faker.lorem.paragraph(),
       product_id: i,
       price: faker.finance.amount(),
-      stock: faker.random.boolean(),
+      saleEnd: faker.random.boolean(),
+      stock: ["In stock", "Only 1 available", "Low in stock"],
       store_id: faker.random.number({min: 1, max: 20})
     });
 

@@ -10,9 +10,10 @@ const Colors = (props) => {
           <select className="dropdownSelectors">
             <option className="dropdownValues">Select a color</option>
             {props.options.map(color => (
-              <option key={color + props.id} className="dropdownValues">{color}</option>
+              <option key={color + props.id} className="dropdownValues">{color.charAt(0).toUpperCase() + color.slice(1)}</option>
               ))}
           </select>
+
         </div>
       </div>
     )

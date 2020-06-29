@@ -19,6 +19,7 @@ const Quantity = (props) => {
               <option className="dropdownValues" key={num + props.id}>{num}</option>
               )}
           </select>
+
         </div>
       </div>
     )

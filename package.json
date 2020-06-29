@@ -18,7 +18,8 @@
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
     "seed": "node database/seed.js",
-    "test": "jest --verbose --watch"
+    "test": "jest --verbose",
+    "test-watch": "jest --verbose --watch"
   },
   "dependencies": {
     "@babel/core": "^7.10.2",
