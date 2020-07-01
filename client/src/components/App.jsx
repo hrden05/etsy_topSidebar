@@ -8,8 +8,10 @@ import StoreInfo from './StoreInfo.jsx';
 import Price from './Price.jsx';
 import PurchaseButtons from './PurchaseButtons.jsx';
 
-const ranNum100 = Math.floor(Math.random() * 100);
+const ranNum100 = Math.ceil(Math.random() * 100);
 const ranNum20 = Math.floor(Math.random() * 20);
+const queryID = ranNum100;
+
 
 class App extends React.Component {
   constructor(props) {
@@ -25,32 +27,60 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getProductInfo();
-    this.getStoreInfo();
+    this.getProductInfo() //TODO: make sure getStore Info happens after get productInfo. Promise?
+    .then( () => {
+      this.getStoreInfo();
+    })
   }
 
   getProductInfo() {
-    axios.get('http://localhost:3000/api/products')
+    return axios.get(`/api/products/${queryID}`)
     .then(results => {
       this.setState({
-        product: results.data.products[ranNum100]
-      }, () => console.log(this.state.product))
+        product: results.data.products
+      })
      })
     .catch(err => {console.log('Error retrieving product info: ', err)})
   }
 
+  // getProductInfo() {
+  //   axios.get('http://localhost:3000/api/products')
+  //   .then(results => {
+  //     this.setState({
+  //       product: results.data.products[ranNum100]
+  //     }, () => console.log(this.state.product))
+  //    })
+  //   .catch(err => {console.log('Error retrieving product info: ', err)})
+  // }
+
   getStoreInfo() {
-    axios.get('http://localhost:3000/api/stores')
+    axios.get(`http://localhost:3000/api/stores/${this.state.product.store_id}`)
     .then(results => {
       this.setState({
-        store: results.data.stores[ranNum20]
+        store: results.data.stores
       })
     })
+    .catch(err => {console.log("StoreGet error:", err)})
   }
+
+
+  // // TODO: collection.findOne
+  // getStoreInfo() {
+  //   axios.get('http://localhost:3000/api/stores')
+  //   .then(results => {
+  //     this.setState({
+  //       store: results.data.stores[ranNum20]
+  //     })
+  //   })
+  //   .catch(err => {console.log("StoreGet error:", err)})
+  // }
+
+
 
   render() {
     const store = this.state.store;
     const product = this.state.product;
+
     return (
       <div className="sidebarAll">
         <div className="sidebarBox">
