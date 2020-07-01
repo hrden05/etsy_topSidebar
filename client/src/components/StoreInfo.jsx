@@ -8,7 +8,6 @@ const multiplyNode = (node, count, deep) => {
 };
 
 const StoreInfo = (props) => {
-  console.log(props)
   let sales = 0;
   if (props.sales !== undefined) {
     sales = props.sales.toLocaleString();

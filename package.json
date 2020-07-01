@@ -10,23 +10,22 @@
   "jest": {
     "setupFilesAfterEnv": "<rootDir>/client/src/components/_test_/setupTests.js",
     "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
-    "setupFiles": ["enzyme-react-16-adapter-setup"]
+    "setupFiles": [
+      "enzyme-react-16-adapter-setup"
+    ]
   },
   "scripts": {
-    "start": "node server/server.js",
+    "start": "node server/index.js",
     "build": "webpack -p",
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
     "seed": "node database/seed.js",
     "test": "jest --verbose",
-    "test-watch": "jest --verbose --watch"
+    "test-watch": "jest --verbose --watch",
+    "all": "node database/seed.js nodemon server/index.js webpack -d --watch"
   },
   "dependencies": {
-    "@babel/core": "^7.10.2",
-    "@babel/preset-env": "^7.10.3",
-    "@babel/preset-react": "^7.10.1",
     "axios": "^0.19.2",
-    "babel-loader": "^8.1.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "faker": "^4.1.0",
@@ -39,10 +38,11 @@
     "webpack-cli": "^3.3.11"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.2",
-    "@babel/preset-env": "^7.10.3",
-    "@babel/preset-react": "^7.10.1",
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
     "babel-jest": "^26.1.0",
+    "babel-loader": "^8.1.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-react-16-adapter-setup": "^0.1.0",

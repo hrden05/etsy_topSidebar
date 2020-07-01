@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const faker = require('faker');
 
-const mongoDB = 'mongodb://localhost:27017/topSidebar';
+const mongoDB = 'mongodb://database:27017/topSidebar';
 mongoose
 .connect(mongoDB, {
   useNewUrlParser: true,
@@ -39,6 +39,7 @@ let productSchema = new Schema({
   saleEnd: Boolean,
   size: [{type: String}],
   stock: [{type: String}],
+  store_id: Number
 })
 
 let Product = mongoose.model('Product', productSchema)
@@ -83,9 +84,9 @@ const colorGen = () => {
 
 // Store products in database
 const productDB = () => {
-  let productNum = 0;
+  let productNum = 1;
 
-  for (let i = 0; i < 100; i ++) {
+  for (let i = 1; i <= 100; i ++) {
     let oneProduct = new Product({
       bestseller: faker.random.boolean(),
       end: faker.random.boolean(),
@@ -99,14 +100,14 @@ const productDB = () => {
       store_id: faker.random.number({min: 1, max: 20})
     });
 
-    if (i < 25) {
+    if (i <= 25) {
       oneProduct.category = 'clothing';
       oneProduct.color = colorGen();
       oneProduct.quantity = faker.random.number({min: 1, max: 500});
       oneProduct.size = ["Small", "Medium", "Large"];
-    } else if (i < 50) {
+    } else if (i <= 50) {
       oneProduct.category = 'art';
-    } else if (i < 75) {
+    } else if (i <= 75) {
       oneProduct.category = 'jewelry';
     } else {
       oneProduct.category = 'misc';
@@ -123,7 +124,7 @@ const productDB = () => {
     productNum = i;
   }
 
-  console.log(productNum + 1 + ' products stored in database');
+  console.log(productNum + ' products stored in database');
 }
 
 
