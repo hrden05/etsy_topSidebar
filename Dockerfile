@@ -1,10 +1,10 @@
-FROM node:6.13.0
+FROM node:12.7.0-alpine
 
 RUN mkdir -p /src/app
 
 WORKDIR /src/app
 
-COPY . /src/app
+COPY package*.json ./
 
 RUN npm install --verbose
 
