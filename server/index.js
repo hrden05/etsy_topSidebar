@@ -1,6 +1,6 @@
 const express = require('express'),
   app = express(),
-  PORT = 3000;
+  PORT = 7777;
 const cors = require('cors');
 // const axios = require('axios');
 const db = require('../database/index.js');

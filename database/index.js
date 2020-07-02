@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const faker = require('faker');
 
-const mongoDB = 'mongodb://database:27017/topSidebar';
+const mongoDB = 'mongodb://localhost:27017/topSidebar';
 mongoose
 .connect(mongoDB, {
   useNewUrlParser: true,
@@ -49,7 +49,7 @@ let Product = mongoose.model('Product', productSchema)
 const storeDB = () => {
   let storeNum = 0;
 
-  for (let i = 0; i < 20; i++) {
+  for (let i = 1; i < 21; i++) {
     let oneStore = new Store({
       rating: faker.random.number({min: 1, max: 5}),
       salesNum: faker.random.number({min: 1, max: 10000}),

@@ -54,7 +54,7 @@ class App extends React.Component {
   // }
 
   getStoreInfo() {
-    axios.get(`http://localhost:3000/api/stores/${this.state.product.store_id}`)
+    axios.get(`/api/stores/${this.state.product.store_id}`)
     .then(results => {
       this.setState({
         store: results.data.stores
