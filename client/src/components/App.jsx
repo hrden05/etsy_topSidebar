@@ -27,6 +27,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+
     this.getProductInfo()
     .then( () => {
       this.getStoreInfo();

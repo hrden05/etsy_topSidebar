@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const faker = require('faker');
 
-const mongoDB = 'mongodb://localhost:27017/topSidebar';
+const mongoDB = 'mongodb://database/topSidebar';
 mongoose
 .connect(mongoDB, {
   useNewUrlParser: true,

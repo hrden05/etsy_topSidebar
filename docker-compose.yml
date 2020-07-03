@@ -8,3 +8,6 @@ services:
       - "80:7777"
   database:
     image: "mongo:latest"
+  seed:
+    build: .
+    command: npm run seed
