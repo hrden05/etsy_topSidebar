@@ -64,7 +64,7 @@ const storeDB = () => {
     })
     storeNum = i;
   }
-  console.log(storeNum + 1 + ' stores stored in database')
+  console.log(storeNum + ' stores stored in database')
 
 }
 

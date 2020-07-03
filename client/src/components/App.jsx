@@ -27,14 +27,19 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getProductInfo() //TODO: make sure getStore Info happens after get productInfo. Promise?
+    this.getProductInfo()
     .then( () => {
       this.getStoreInfo();
     })
   }
 
   getProductInfo() {
-    return axios.get(`/api/products/${queryID}`)
+    // return axios.get(`/api/products/${queryID}`)
+    return axios.get('api/products', {
+      params: {
+        queryID
+      }
+    })
     .then(results => {
       this.setState({
         product: results.data.products
@@ -54,7 +59,13 @@ class App extends React.Component {
   // }
 
   getStoreInfo() {
-    axios.get(`/api/stores/${this.state.product.store_id}`)
+    const storeId = this.state.product.store_id;
+    // axios.get(`/api/stores/${this.state.product.store_id}`)
+    axios.get('api/stores', {
+      params: {
+        storeId,
+      }
+    })
     .then(results => {
       this.setState({
         store: results.data.stores

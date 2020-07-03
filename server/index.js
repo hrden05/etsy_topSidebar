@@ -9,10 +9,12 @@ app.use(cors());
 app.use(express.json());
 app.use('/', express.static('client/dist'));
 
-app.get('/api/stores/:id', (req, res) => {
+// app.get('/api/stores/:id', (req, res) => {
+app.get('/api/stores', (req, res) => {
+  const { storeId } = req.query
   db.Store.findOne(
     {
-      'store_id': req.params.id
+      'store_id': storeId
     }
   )
   .then(results =>
@@ -28,11 +30,13 @@ app.get('/api/stores/:id', (req, res) => {
 })
 
 
-app.get('/api/products/:id', (req, res) => {
+// app.get('/api/products/:id', (req, res) => {
+app.get('/api/products', (req, res) => {
   // console.log("id", req.params.id)
+  const { queryID } = req.query;
   db.Product.findOne(
     {
-      'product_id': req.params.id
+      'product_id': queryID
     }
   )
   .then(results => {
