@@ -1,8 +1,9 @@
 # Project Name
-# Etsy Similar Products
+# Product Description
 
 > Project description
-> Hack Reactor Front End Capstone project to build an "item detail page" from a popular website. This repo focuses on the top sidebar of the Etsy item detail page that renders store information, product information, and purchase options.
+
+Project focused on rendering the sidebar description info for an ecommerce website. This repo focuses on the top sidebar of an item detail page that renders store information, product information, and purchase options.
 
 ## Related Projects
 
