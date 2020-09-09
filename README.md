@@ -43,9 +43,13 @@ To run this repo, you will need to install dependencies and run appropriate scri
 Executing the code below will install dependencies, seed the database, start the server, and start webpack. Examine the package.json file for additional scripts.
 
 > npm install
+
 > npm run seed
+
 > npm run server-dev
+
 > npm run react-dev
+
 > npm run test
 
 ## Testing
