@@ -15,6 +15,7 @@ CircleCI
 Docker
 
 ### Related Projects
+<hr/>
 https://github.com/hrden05/hipsy-image-carouselmain
 https://github.com/hrden05/etsy_topSidebar
 https://github.com/hrden05/hipsty-product-details-main
