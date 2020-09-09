@@ -20,7 +20,7 @@ https://github.com/hrden05/hipsty-product-details-main
 https://github.com/hrden05/etsy_reviews
 https://github.com/hrden05/proxy
 
-## Usage ---
+## Usage
 To run this repo, you will need to install dependencies and run appropriate scripts.
 
 ## Requirements
