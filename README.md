@@ -32,9 +32,12 @@
 To run this repo, you will need to install dependencies and run appropriate scripts.
 
 ## Requirements
-Node 6.13.0
-npm
-MongoDB
+<ul>
+  <li>Node 6.13.0</li>
+  <li>npm</li>
+  <li>MongoDB</li>
+</ul>
+
 
 ## Development
 Executing the code below will install dependencies, seed the database, start the server, and start webpack. Examine the package.json file for additional scripts.
