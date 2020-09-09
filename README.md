@@ -42,11 +42,11 @@ To run this repo, you will need to install dependencies and run appropriate scri
 ## Development
 Executing the code below will install dependencies, seed the database, start the server, and start webpack. Examine the package.json file for additional scripts.
 
-npm install
-npm run seed
-npm run server-dev
-npm run react-dev
-npm run test
+> npm install
+> npm run seed
+> npm run server-dev
+> npm run react-dev
+> npm run test
 
 ## Testing
-Unit tests built with Jest and Enzyme can be run with npm run test. To see test coverage, run npm run test-coverage.
+Unit tests built with Jest and Enzyme can be run with 'npm run test'. To see test coverage, run 'npm run test'.
