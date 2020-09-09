@@ -3,22 +3,30 @@
 > Hipsy is an e-commerce site selling unique hand-crafted products. This project creates the product description module (store information, item information, purchase options, and personalization menu dropdown) for the Hipsy product detail page. This project was developed as one microservice for the entire product detail page in a service-oriented architecture. Other related services (image carousel, product information, similar products, and reviews) are all unified with this service via a proxy server.
 
 ## Technologies Used
-<ul>React<ul>
-Node
-Express
-MongoDB
-Mongoose
-Jest
-Enzyme
-CircleCI
-Docker
+<ul>
+  <li>React</li>
+  <li>Node</li>
+  <li>Express</li>
+  <li>MongoDB</li>
+  <li>Mongoose</li>
+  <li>Enzyme</li>
+  <li>CircleCI</li>
+  <li>Docker</li>
+</ul>
 
 ## Related Projects
-https://github.com/hrden05/hipsy-image-carouselmain
-https://github.com/hrden05/etsy_topSidebar
-https://github.com/hrden05/hipsty-product-details-main
-https://github.com/hrden05/etsy_reviews
-https://github.com/hrden05/proxy
+<ul>
+  <li>https://github.com/hrden05/hipsy-image-carouselmain
+</li>
+  <li>https://github.com/hrden05/hipsyTopSidebar
+</li>
+  <li>https://github.com/hrden05/hipsty-product-details-main
+</li>
+  <li>https://github.com/hrden05/etsy_reviews
+</li>
+  <li>https://github.com/hrden05/proxy
+</li>
+</ul>
 
 ## Usage
 To run this repo, you will need to install dependencies and run appropriate scripts.
