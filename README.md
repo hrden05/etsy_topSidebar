@@ -3,7 +3,6 @@
 > Hipsy is an e-commerce site selling unique hand-crafted products. This project creates the product description module (store information, item information, purchase options, and personalization menu dropdown) for the Hipsy product detail page. This project was developed as one microservice for the entire product detail page in a service-oriented architecture. Other related services (image carousel, product information, similar products, and reviews) are all unified with this service via a proxy server.
 
 ## Technologies Used
-<hr/>
 React
 Node
 Express
@@ -15,7 +14,6 @@ CircleCI
 Docker
 
 ## Related Projects
----
 https://github.com/hrden05/hipsy-image-carouselmain
 https://github.com/hrden05/etsy_topSidebar
 https://github.com/hrden05/hipsty-product-details-main
