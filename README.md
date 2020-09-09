@@ -18,7 +18,7 @@
 <ul>
   <li>https://github.com/hrden05/hipsy-image-carouselmain
 </li>
-  <li>https://github.com/hrden05/hipsyTopSidebar
+  <li>https://github.com/hrden05/hipsy-similar-products
 </li>
   <li>https://github.com/hrden05/hipsty-product-details-main
 </li>
